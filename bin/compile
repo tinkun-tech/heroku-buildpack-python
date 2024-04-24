@@ -260,6 +260,17 @@ export_env_dir() {
 }
 export_env_dir
 
+echo "-----> Config AWS"
+mkdir -p ~/.aws
+
+echo "[default]" > ~/.aws/credentials
+echo "aws_access_key_id = $AWS_ACCESS_KEY_ID" >> ~/.aws/credentials
+echo "aws_secret_access_key = $AWS_SECRET_ACCESS_KEY" >> ~/.aws/credentials
+
+echo "[default]" > ~/.aws/config
+echo "region = $AWS_DEFAULT_REGION" >> ~/.aws/config
+echo "output = json" >> ~/.aws/config
+
 aws codeartifact login --tool pip --repository tinkun --domain tinkun --domain-owner 552699747136 --region us-east-2
 
 pip config set global.extra-index-url https://pypi.org/simple
