@@ -241,7 +241,7 @@ mtime "sqlite3.install.time" "${start}"
 # pip install
 # -----------
 
-aws codeartifact login --tool pip --repository $REPOSITORY_NAME --domain $REPOSITORY_DOMAIN --domain-owner $DOMAIN_OWNER --region $AWS_REGION
+aws codeartifact login --tool pip --repository $REPOSITORY_NAME --domain $REPOSITORY_DOMAIN --domain-owner $DOMAIN_OWNER --region us-east-2
 
 pip config set global.extra-index-url https://pypi.org/simple
 pip config set global.trusted-host pypi.org
