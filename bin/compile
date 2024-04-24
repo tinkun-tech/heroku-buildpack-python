@@ -243,7 +243,7 @@ mtime "sqlite3.install.time" "${start}"
 
 H_ENV_DIR=$3
 
-export BUILD_DIR CACHE_DIR H_ENV_DIR
+export H_ENV_DIR
 
 # Get env vars
 echo "-----> Config env vars"
