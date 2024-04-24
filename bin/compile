@@ -241,6 +241,11 @@ mtime "sqlite3.install.time" "${start}"
 # pip install
 # -----------
 
+aws codeartifact login --tool pip --repository $REPOSITORY_NAME --domain $REPOSITORY_DOMAIN --domain-owner $DOMAIN_OWNER --region $AWS_DEFAULT_REGION
+
+pip config set global.extra-index-url https://pypi.org/simple
+pip config set global.trusted-host pypi.org
+
 # Install dependencies with pip (where the magic happens).
 (( start=$(nowms) ))
 # shellcheck source=bin/steps/pip-install
