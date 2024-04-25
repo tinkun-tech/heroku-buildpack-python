@@ -243,6 +243,16 @@ mtime "sqlite3.install.time" "${start}"
 
 # Get env vars
 echo "-----> Config env vars"
+export_env_dir() {
+  if [ -d "$ENV_DIR" ]; then
+    for e in $(ls $ENV_DIR); do
+      echo "$e" &&
+      export "$e=$(cat $ENV_DIR/$e)"
+      :
+    done
+  fi
+}
+export_env_dir
 
 echo "-----> Config AWS"
 mkdir -p ~/.aws
