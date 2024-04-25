@@ -241,19 +241,15 @@ mtime "sqlite3.install.time" "${start}"
 # pip install
 # -----------
 
-H_ENV_DIR=$3
-
-export H_ENV_DIR
-
 # Get env vars
 echo "-----> Config env vars"
 export_env_dir() {
   acceptlist_regex=${2:-''}
   denylist_regex=${3:-'^(PATH|GIT_DIR|CPATH|CPPATH|LD_PRELOAD|LIBRARY_PATH)$'}
-  if [ -d "$H_ENV_DIR" ]; then
-    for e in $(ls $H_ENV_DIR); do
+  if [ -d "$ENV_DIR" ]; then
+    for e in $(ls $ENV_DIR); do
       echo "$e" | grep -E "$acceptlist_regex" | grep -qvE "$denylist_regex" &&
-      export "$e=$(cat $H_ENV_DIR/$e)"
+      export "$e=$(cat $ENV_DIR/$e)"
       :
     done
   fi
