@@ -270,8 +270,6 @@ aws codeartifact login --tool pip --repository tinkun --domain tinkun --domain-o
 pip config set global.extra-index-url https://pypi.org/simple
 pip config set global.trusted-host pypi.org
 
-pip install psycopg2
-
 # Install dependencies with pip (where the magic happens).
 (( start=$(nowms) ))
 # shellcheck source=bin/steps/pip-install
