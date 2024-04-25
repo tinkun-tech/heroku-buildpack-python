@@ -276,9 +276,6 @@ pip config set global.trusted-host pypi.org
 source "$BIN_DIR/steps/pip-install"
 mtime "pip.install.time" "${start}"
 
-pip install -r requirements.txt
-pip install django_redis
-
 # Support for NLTK corpora.
 (( start=$(nowms) ))
 sub_env "$BIN_DIR/steps/nltk"
