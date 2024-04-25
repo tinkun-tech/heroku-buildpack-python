@@ -265,7 +265,7 @@ echo "[default]" > ~/.aws/config
 echo "region = $AWS_DEFAULT_REGION" >> ~/.aws/config
 echo "output = json" >> ~/.aws/config
 
-aws codeartifact login --tool pip --repository tinkun --domain tinkun --domain-owner 552699747136 --region us-east-2
+aws codeartifact login --tool pip --repository $REPOSITORY_NAME --domain $REPOSITORY_DOMAIN --domain-owner $DOMAIN_OWNER --region $AWS_DEFAULT_REGION
 
 pip config set global.extra-index-url https://pypi.org/simple
 pip config set global.trusted-host pypi.org
