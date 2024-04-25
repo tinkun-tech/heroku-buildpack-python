@@ -278,11 +278,7 @@ pip install psycopg2
 source "$BIN_DIR/steps/pip-install"
 mtime "pip.install.time" "${start}"
 
-echo "Verificando si Django está instalado..."
-if ! python -c "import django"; then
-  echo "Error: Django no está instalado"
-  exit 1
-fi
+pip install -r requirements.txt
 
 # Support for NLTK corpora.
 (( start=$(nowms) ))
