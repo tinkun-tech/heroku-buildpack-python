@@ -262,16 +262,10 @@ echo "aws_access_key_id = $T_AWS_ACCESS_KEY_ID" >> ~/.aws/credentials
 echo "aws_secret_access_key = $T_AWS_SECRET_ACCESS_KEY" >> ~/.aws/credentials
 
 echo "[default]" > ~/.aws/config
-echo "region = $T_AWS_DEFAULT_REGION" >> ~/.aws/config
+echo "region = $T_AWS_REGION" >> ~/.aws/config
 echo "output = json" >> ~/.aws/config
 
-echo "-----> leo test"
-echo "-> $REPOSITORY_NAME"
-echo "-> $REPOSITORY_DOMAIN"
-echo "-> $DOMAIN_OWNER"
-echo "-> $T_AWS_DEFAULT_REGION"
-
-aws codeartifact login --tool pip --repository $REPOSITORY_NAME --domain $REPOSITORY_DOMAIN --domain-owner $DOMAIN_OWNER --region $T_AWS_DEFAULT_REGION
+aws codeartifact login --tool pip --repository $REPOSITORY_NAME --domain $REPOSITORY_DOMAIN --domain-owner $DOMAIN_OWNER --region $T_AWS_REGION
 
 pip config set global.extra-index-url https://pypi.org/simple
 pip config set global.trusted-host pypi.org
